@@ -15,11 +15,11 @@ connectButton.addEventListener('click', async () => {
     const server = await device.gatt.connect();
 
     // 指定されたサービスを取得
-    const service = await server.getPrimaryService('your_service_uuid');
+    const service = await server.getPrimaryService('4fafc201-1fb5-459e-8fcc-c5c9c331914b');
 
     // 複数のキャラクタリスティックを取得
-    const characteristic1 = await service.getCharacteristic('your_characteristic1_uuid');
-    const characteristic2 = await service.getCharacteristic('your_characteristic2_uuid');
+    const characteristic1 = await service.getCharacteristic('beb5483e-36e1-4688-b7f5-ea07361b26a8');
+    const characteristic2 = await service.getCharacteristic('beb5483e-36e1-4688-b7f5-ea07361b26a8');
 
     // 値を読み取る
     const value1 = await characteristic1.readValue();
