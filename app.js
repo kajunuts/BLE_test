@@ -29,6 +29,11 @@ connectButton.addEventListener('click', async () => {
     const value1Array = new Uint8Array(value1.buffer);
     const value2Array = new Uint8Array(value2.buffer);
 
+    // 文字列に変換するためにTextDecoderを使う
+    const textDecoder = new TextDecoder('utf-8');
+    const value1String = textDecoder.decode(value1Array);
+    const value2String = textDecoder.decode(value2Array);
+    
     // 結果を表示
     outputDiv.innerHTML = `
       <p>Characteristic 1 Value: ${value1Array}</p>
