@@ -7,7 +7,7 @@ connectButton.addEventListener('click', async () => {
   try {
     // デバイスを検索
     const device = await navigator.bluetooth.requestDevice({
-      filters: [{ services: ['4fafc201-1fb5-459e-8fcc-c5c9c331914b'] }], // サービスのUUIDを指定
+      acceptAllDevices: true,
       optionalServices: ['beb5483e-36e1-4688-b7f5-ea07361b26a8']
     });
 
