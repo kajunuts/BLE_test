@@ -29,15 +29,32 @@ connectButton.addEventListener('click', async () => {
     const value1Array = new Uint8Array(value1.buffer);
     const value2Array = new Uint8Array(value2.buffer);
 
-    // 文字列に変換するためにTextDecoderを使う
+    // 値をログで確認
+    console.log("Characteristic 1 raw value:", value1Array);
+    console.log("Characteristic 2 raw value:", value2Array);
+
+    // データを文字列にデコードしようとする
     const textDecoder = new TextDecoder('utf-8');
-    const value1String = textDecoder.decode(value1Array);
-    const value2String = textDecoder.decode(value2Array);
-    
+    let value1String, value2String;
+
+    try {
+      value1String = textDecoder.decode(value1Array);
+    } catch (e) {
+      value1String = "Failed to decode as text";
+    }
+
+    try {
+      value2String = textDecoder.decode(value2Array);
+    } catch (e) {
+      value2String = "Failed to decode as text";
+    }
+
     // 結果を表示
     outputDiv.innerHTML = `
-      <p>Characteristic 1 Value: ${value1Array}</p>
-      <p>Characteristic 2 Value: ${value2Array}</p>
+      <p>Characteristic 1 Raw Value: ${value1Array}</p>
+      <p>Characteristic 1 Decoded Value (String): ${value1String}</p>
+      <p>Characteristic 2 Raw Value: ${value2Array}</p>
+      <p>Characteristic 2 Decoded Value (String): ${value2String}</p>
     `;
   } catch (error) {
     console.log('Error:', error);
