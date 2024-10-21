@@ -19,7 +19,7 @@ connectButton.addEventListener('click', async () => {
 
     // 複数のキャラクタリスティックを取得
     const characteristic1 = await service.getCharacteristic('beb5483e-36e1-4688-b7f5-ea07361b26a8');
-    const characteristic2 = await service.getCharacteristic('beb5483e-36e1-4688-b7f5-ea07361b26a8');
+    const characteristic2 = await service.getCharacteristic('d15c084a-1275-4181-9648-0400ec48104a');
 
     // 値を読み取る
     const value1 = await characteristic1.readValue();
